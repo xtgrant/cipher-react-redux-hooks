@@ -10,7 +10,7 @@ import UnstyledPaper from '@material-ui/core/Paper';
 const Main = () => (
   <Provider store={store}>
     <Wrapper>
-      <center><h1>Caesar's Cipher</h1></center>
+      <h1>Caesar's Cipher</h1>
       <Shift />
       <Paper elevation={10}>
         <PlainText />
@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   width: 800px;
   height: 500px;
   margin: 0 auto;
+  text-align: center;
 `;
 
 const Paper = styled(UnstyledPaper)`
