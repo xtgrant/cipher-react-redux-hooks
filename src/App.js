@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import styled from 'styled-components';
+import store from './store';
+import PlainText from './components/PlainText';
+import CipherText from './components/CipherText';
+import Shift from './components/Shift';
+import UnstyledPaper from '@material-ui/core/Paper';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Main = () => (
+  <Provider store={store}>
+    <Wrapper>
+      <center><h1>Caesar's Cipher</h1></center>
+      <Shift />
+      <Paper elevation={10}>
+        <PlainText />
+        <CipherText />
+      </Paper>
+    </Wrapper>
+  </Provider>
+);
 
-export default App;
+const Wrapper = styled.div`
+  width: 800px;
+  height: 500px;
+  margin: 0 auto;
+`;
+
+const Paper = styled(UnstyledPaper)`
+  margin: 50px;
+  padding: 25px;
+`;
+
+export default Main;
